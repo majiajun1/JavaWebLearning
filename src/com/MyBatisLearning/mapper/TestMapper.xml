@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.MyBatisLearning.mapper.TestMapper">
+    <select id="selectStudent" resultType="student">
+        select * from mybatislearning.student
+    </select>
+     <select id="getStudentById" resultType="student">
+        select * from mybatislearning.student where sid=#{sid}
+    </select>
+    <insert id="addStudent">
+        insert into mybatislearning.student(name, sex) values(#{name}, #{sex})
+    </insert>
+    <delete id="deleteStudent">
+        delete from mybatislearning.student where sid=#{sid}
+    </delete>
+
+<!--   <resultMap id="Test" type="Student">-->
+<!--    <result column="sid" property="sid"/>-->
+<!--    <result column="sex" property="name"/>-->
+<!--    <result column="name" property="sex"/>-->
+<!--       &lt;!&ndash;    把name和sex互换&ndash;&gt;-->
+<!--&lt;!&ndash;    </resultMap>&ndash;&gt;-->
+<!--    <select id="selectStudent" resultMap="Test">-->
+<!--        select * from mybatislearning.student-->
+<!--    </select>-->
+
+</mapper>

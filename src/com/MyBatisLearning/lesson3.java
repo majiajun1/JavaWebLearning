@@ -1,5 +1,6 @@
 package com.MyBatisLearning;
 
+import com.MyBatisLearning.entity.Student;
 import lombok.SneakyThrows;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
