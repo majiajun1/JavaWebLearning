@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 //@Accessors(chain = true)
 //
 //@EqualsAndHashCode()
-@Builder(toBuilder = true)
+@Builder
 @ToString
 public class Student {
 //   private Integer sid;
@@ -23,7 +23,7 @@ public class Student {
 //   private String sex;
 //   @Getter
 //   static int test;
-
+   @Builder.Default
    Integer sid=10;
    String name;
    String sex;

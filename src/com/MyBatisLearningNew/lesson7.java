@@ -1,4 +1,4 @@
-package com.MyBatisLearning;
+package com.MyBatisLearningNew;
 
 import com.MyBatisLearningNew.mapper.TestMapper;
 import org.apache.ibatis.session.SqlSession;

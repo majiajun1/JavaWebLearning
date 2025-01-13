@@ -1,4 +1,4 @@
-package com.MyBatisLearning.entity;
+package com.MyBatisLearningNew.entity;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

@@ -1,7 +1,7 @@
-package com.MyBatisLearning.mapper;
+package com.MyBatisLearningNew.mapper;
 
-import com.MyBatisLearning.entity.Student;
-import com.MyBatisLearning.entity.Teacher;
+import com.MyBatisLearningNew.entity.Student;
+import com.MyBatisLearningNew.entity.Teacher;
 
 import java.util.List;
 
