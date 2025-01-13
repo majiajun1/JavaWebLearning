@@ -17,7 +17,10 @@ public class Student {
 //        System.out.println("调用了2");
 //    }
 
-
+//    public Student()
+//    {
+//        System.out.println("我被构造了");
+//    }
     int sid;
     String name;
     String sex;

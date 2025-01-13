@@ -3,25 +3,30 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.MyBatisLearning.mapper.TestMapper">
+<!--    <cache-->
+<!--  eviction="LRU"-->
+<!--  flushInterval="60000"-->
+<!--  size="512"-->
+<!--  readOnly="true"/>-->
     <select id="selectStudent" resultType="student">
         select * from mybatislearning.student
     </select>
-     <select id="getStudentById" resultType="student">
+     <select id="getStudentById" resultType="student" flushCache="true">
         select * from mybatislearning.student where sid =#{sid}
-       <choose>
-           <when test="sid==1">
-               and sex="male"
-           </when>
-         <when test="sid==2">
-               and sex="female"
-           </when>
-         <when test="sid==3">
-               and sex="male"
-           </when>
-        <otherwise>
-            and sex="female"
-        </otherwise>
-       </choose>
+<!--       <choose>-->
+<!--           <when test="sid==1">-->
+<!--               and sex="male"-->
+<!--           </when>-->
+<!--         <when test="sid==2">-->
+<!--               and sex="female"-->
+<!--           </when>-->
+<!--         <when test="sid==3">-->
+<!--               and sex="male"-->
+<!--           </when>-->
+<!--        <otherwise>-->
+<!--            and sex="female"-->
+<!--        </otherwise>-->
+<!--       </choose>-->
 
     </select>
     <select id="findStudentsByIds" parameterType="list" resultType="student">
