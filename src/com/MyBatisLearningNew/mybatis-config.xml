@@ -23,6 +23,6 @@
 
   </environments>
   <mappers>
-    <mapper resource="com/MyBatisLearning/mapper/TestMapper.xml"/>
+    <mapper class="com.MyBatisLearningNew.mapper.TestMapper"/>
   </mappers>
 </configuration>

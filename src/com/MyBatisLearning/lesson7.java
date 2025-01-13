@@ -1,6 +1,6 @@
 package com.MyBatisLearning;
 
-import com.MyBatisLearningNew.mapper.TestMapper;
+import com.MyBatisLearning.mapper.TestMapper;
 import org.apache.ibatis.session.SqlSession;
 
 public class lesson7 {
