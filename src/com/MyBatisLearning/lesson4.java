@@ -23,7 +23,12 @@ public class lesson4 {
 //
 //            Student one=new Student().setSid(1).setName("MJJ4").setSex("male");
 //            System.out.println(mapper.addStudent(one));
-            System.out.println(mapper.deleteStudent(7));
+////            System.out.println(mapper.deleteStudent(7));
+//            System.out.println(mapper.getTeacherByTid(1));
+//            System.out.println(mapper.getStudentById(3));
+            List<Integer> ids=List.of(1,2,3,4);
+            List<Student> studentsResult=mapper.findStudentsByIds(ids);
+            studentsResult.forEach(System.out::println);
 
         }catch (Exception e) {
             e.printStackTrace();
