@@ -49,41 +49,51 @@ public class lesson10 {
 
 
         //======================================================
-        log.setLevel(Level.CONFIG);
+//        log.setLevel(Level.CONFIG);
+//        log.setUseParentHandlers(false);
+//
+//         ConsoleHandler handler = new ConsoleHandler(){{setOutputStream(System.out);}};
+//        handler.setFormatter(new Formatter() {
+//        @Override
+//        public String format(LogRecord record) {
+//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+//            String time = format.format(new Date(record.getMillis()));  //格式化日志时间
+//            String level = record.getLevel().getName();  // 获取日志级别名称
+//            // String level = record.getLevel().getLocalizedName();   // 获取本地化名称（语言跟随系统）
+//            String thread = String.format("%10s", Thread.currentThread().getName());  //线程名称（做了格式化处理，留出10格空间）
+//            long threadID = record.getThreadID();   //线程ID
+//            String className = String.format("%-20s", record.getSourceClassName());  //发送日志的类名
+//            String msg = record.getMessage();   //日志消息
+//
+//          //\033[33m作为颜色代码，30~37都有对应的颜色，38是没有颜色，IDEA能显示，但是某些地方可能不支持
+//            return "\033[38m" + time + "  \033[33m" + level + " \033[35m" + threadID
+//                    + "\033[38m --- [" + thread + "] \033[36m" + className + "\033[38m : " + msg + "\n";
+//        }
+//    });
+//
+//
+//        FileHandler fh = new FileHandler("test.log",true); //true则追加
+//        fh.setLevel(Level.ALL);
+//        fh.setFormatter(new SimpleFormatter()); //设置格式
+//        log.addHandler(fh);
+//
+//        handler.setLevel(Level.CONFIG);
+//        log.addHandler(handler);
+//
+//        log.log(Level.SEVERE,"严重错误演示");
+//        log.log(Level.WARNING,"warning信息演示");
+//        log.log(Level.INFO,"INFO级别信息演示");
+//        log.log(Level.CONFIG,"CONFIG级别信息演示");
+        //===============================
         log.setUseParentHandlers(false);
-
-         ConsoleHandler handler = new ConsoleHandler(){{setOutputStream(System.out);}};
-        handler.setFormatter(new Formatter() {
-        @Override
-        public String format(LogRecord record) {
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-            String time = format.format(new Date(record.getMillis()));  //格式化日志时间
-            String level = record.getLevel().getName();  // 获取日志级别名称
-            // String level = record.getLevel().getLocalizedName();   // 获取本地化名称（语言跟随系统）
-            String thread = String.format("%10s", Thread.currentThread().getName());  //线程名称（做了格式化处理，留出10格空间）
-            long threadID = record.getThreadID();   //线程ID
-            String className = String.format("%-20s", record.getSourceClassName());  //发送日志的类名
-            String msg = record.getMessage();   //日志消息
-
-          //\033[33m作为颜色代码，30~37都有对应的颜色，38是没有颜色，IDEA能显示，但是某些地方可能不支持
-            return "\033[38m" + time + "  \033[33m" + level + " \033[35m" + threadID
-                    + "\033[38m --- [" + thread + "] \033[36m" + className + "\033[38m : " + msg + "\n";
-        }
-    });
-
-
-        FileHandler fh = new FileHandler("test.log",true); //true则追加
-        fh.setLevel(Level.ALL);
-        fh.setFormatter(new SimpleFormatter()); //设置格式
-        log.addHandler(fh);
-
-        handler.setLevel(Level.CONFIG);
-        log.addHandler(handler);
-
+        ConsoleHandler ch = new ConsoleHandler();
+        ch.setFilter(record -> !record.getMessage().contains("warning"));
+        log.addHandler(ch);
+        log.setFilter(record -> !record.getMessage().contains("严重"));
         log.log(Level.SEVERE,"严重错误演示");
         log.log(Level.WARNING,"warning信息演示");
         log.log(Level.INFO,"INFO级别信息演示");
-        log.log(Level.CONFIG,"CONFIG级别信息演示");
+
 
     }
 }
