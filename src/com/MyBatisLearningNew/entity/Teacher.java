@@ -7,5 +7,5 @@ import java.util.List;
 public class Teacher {
     int tid;
     String name;
-    List<Student> studentList;
+//    List<Student> studentList;
 }

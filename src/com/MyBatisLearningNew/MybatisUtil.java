@@ -12,7 +12,7 @@ public class MybatisUtil {
     static {
         try {
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(new
-                    FileInputStream("D:\\Document\\JavaWebLearning\\src\\com\\MyBatisLearning\\mybatis-config.xml"));
+                    FileInputStream("D:\\Document\\JavaWebLearning\\src\\com\\MyBatisLearningNew\\mybatis-config.xml"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
