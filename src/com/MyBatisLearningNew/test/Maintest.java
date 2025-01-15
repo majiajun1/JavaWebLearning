@@ -14,6 +14,7 @@ import org.junit.Test;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.logging.LogManager;
 
 public class Maintest {
 
@@ -24,7 +25,9 @@ public class Maintest {
         try {
             sqlSessionFactory = new SqlSessionFactoryBuilder()
                     .build(new FileInputStream("D:\\Document\\JavaWebLearning\\src\\com\\MyBatisLearningNew\\mybatis-config.xml"));
-        } catch (FileNotFoundException e) {
+            LogManager logManager = LogManager.getLogManager();
+            logManager.readConfiguration(new FileInputStream("D:\\Document\\JavaWebLearning\\src\\com\\MyBatisLearningNew\\test.properties"));
+        } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println("测试初始化完成，正在开始测试案例...");
@@ -77,6 +80,16 @@ public class Maintest {
             Assert.assertEquals(new Student().setSid(1).setName("MJJ").setSex("female"),student);
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void test5(){
+        try(SqlSession session= sqlSessionFactory.openSession(true))
+        {
+            TestMapper mapper = session.getMapper(TestMapper.class);
+            System.out.println(mapper.getStudentBySid(1));
+            System.out.println(mapper.getStudentBySid(1));  //一级缓存 SQL取一次就行了
         }
     }
 
